@@ -1,0 +1,39 @@
+package com.employee.Controller;
+
+import com.employee.Security.JwtService;
+import jakarta.validation.constraints.NotBlank;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/auth")
+@CrossOrigin(origins = "http://localhost:5173")
+public class AuthController {
+
+    private final AuthenticationManager authManager;
+    private final JwtService jwtService;
+
+    public AuthController(AuthenticationManager authManager, JwtService jwtService) {
+        this.authManager = authManager;
+        this.jwtService = jwtService;
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest req) {
+        try {
+            var token = new UsernamePasswordAuthenticationToken(req.username(), req.password());
+            authManager.authenticate(token); // throws if bad creds
+            String jwt = jwtService.generateToken(req.username());
+            return ResponseEntity.ok(new AuthResponse(jwt));
+        } catch (AuthenticationException ex) {
+            return ResponseEntity.status(401).build();
+        }
+    }
+
+    public record AuthRequest(@NotBlank String username, @NotBlank String password) {}
+    public record AuthResponse(String token) {}
+}
+

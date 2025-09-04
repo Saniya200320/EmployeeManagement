@@ -1,0 +1,66 @@
+package com.employee.Service;
+import com.employee.Exception.ResourceNotFoundException;
+
+
+import com.employee.Employee;
+import com.employee.Repository.EmployeeRepository;
+import org.springframework.stereotype.Service;
+ 
+import java.util.List;
+ 
+@Service
+public class EmployeeService {
+    private final EmployeeRepository repo;
+ 
+    public EmployeeService(EmployeeRepository repo) {
+        this.repo = repo;
+    }
+ 
+    public List<Employee> getAllEmployees() {
+        return repo.findAll();
+    }
+ 
+    public Employee addEmployee(Employee employee) {
+        return repo.save(employee);
+    }
+ 
+   /* public Employee updateEmployee(Long id, Employee empDetails) {
+        Employee emp = repo.findById(id).orElseThrow();
+        emp.setName(empDetails.getName());
+        emp.setEmail(empDetails.getEmail());
+        emp.setDepartment(empDetails.getDepartment());
+        emp.setRole(empDetails.getRole());
+        emp.setSalary(empDetails.getSalary());
+        emp.setJoiningDate(empDetails.getJoiningDate());
+        return repo.save(emp);
+    }*/
+    
+    public Employee updateEmployee(Long id, Employee empDetails) {
+        Employee emp = repo.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee not found with id " + id));
+        emp.setName(empDetails.getName());
+        emp.setEmail(empDetails.getEmail());
+        emp.setDepartment(empDetails.getDepartment());
+        emp.setRole(empDetails.getRole());
+        emp.setSalary(empDetails.getSalary());
+        emp.setJoiningDate(empDetails.getJoiningDate());
+        return repo.save(emp);
+    }
+    public Employee getEmployeeById(Long id) {
+        return repo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
+    }
+
+    public void deleteEmployee(Long id) {
+        repo.deleteById(id);
+    }
+ 
+    public List<Employee> searchByName(String name) {
+        return repo.findByNameContainingIgnoreCase(name);
+    }
+ 
+    public List<Employee> filterByDepartment(String department) {
+        return repo.findByDepartmentIgnoreCase(department);
+    }
+}
+ 

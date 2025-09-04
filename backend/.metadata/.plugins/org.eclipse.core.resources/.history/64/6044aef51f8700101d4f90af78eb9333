@@ -1,0 +1,50 @@
+package com.employee.Controller;
+
+import com.employee.Employee;
+import com.employee.Service.EmployeeService;
+import org.springframework.web.bind.annotation.*;
+ 
+import java.util.List;
+ 
+@RestController
+@RequestMapping("/api/employees")
+@CrossOrigin(origins = "http://localhost:5173")
+public class EmployeeController {
+ 
+    private final EmployeeService service;
+ 
+    public EmployeeController(EmployeeService service) {
+        this.service = service;
+    }
+ 
+    @GetMapping
+    public List<Employee> getAll() {
+        return service.getAllEmployees();
+    }
+ 
+    @PostMapping
+    public Employee add(@RequestBody Employee employee) {
+        return service.addEmployee(employee);
+    }
+ 
+    @PutMapping("/{id}")
+    public Employee update(@PathVariable Long id, @RequestBody Employee employee) {
+        return service.updateEmployee(id, employee);
+    }
+ 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.deleteEmployee(id);
+    }
+ 
+    @GetMapping("/search")
+    public List<Employee> searchByName(@RequestParam String name) {
+        return service.searchByName(name);
+    }
+ 
+    @GetMapping("/filter")
+    public List<Employee> filterByDept(@RequestParam String department) {
+        return service.filterByDepartment(department);
+    }
+}
+ 

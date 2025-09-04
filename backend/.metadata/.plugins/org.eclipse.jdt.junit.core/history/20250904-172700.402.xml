@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="EmployeeManagement" project="EmployeeManagement" tests="12" started="12" failures="0" errors="0" ignored="0">
+  <testsuite name="com.employee.DemoApplicationTests" time="5.567" displayname="DemoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.employee.DemoApplicationTests]">
+    <testcase name="contextLoads" classname="com.employee.DemoApplicationTests" time="5.567" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.employee.DemoApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+  <testsuite name="com.employee.Service.EmployeeServiceTest" time="0.364" displayname="EmployeeServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.EmployeeServiceTest]">
+    <testcase name="testDeleteEmployee" classname="com.employee.Service.EmployeeServiceTest" time="0.321" displayname="testDeleteEmployee()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.EmployeeServiceTest]/[method:testDeleteEmployee()]"/>
+    <testcase name="testUpdateEmployeeNotFound" classname="com.employee.Service.EmployeeServiceTest" time="0.026" displayname="testUpdateEmployeeNotFound()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.EmployeeServiceTest]/[method:testUpdateEmployeeNotFound()]"/>
+    <testcase name="testAddEmployee" classname="com.employee.Service.EmployeeServiceTest" time="0.006" displayname="testAddEmployee()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.EmployeeServiceTest]/[method:testAddEmployee()]"/>
+    <testcase name="testUpdateEmployeeSuccess" classname="com.employee.Service.EmployeeServiceTest" time="0.003" displayname="testUpdateEmployeeSuccess()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.EmployeeServiceTest]/[method:testUpdateEmployeeSuccess()]"/>
+    <testcase name="testSearchByName" classname="com.employee.Service.EmployeeServiceTest" time="0.002" displayname="testSearchByName()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.EmployeeServiceTest]/[method:testSearchByName()]"/>
+    <testcase name="testGetAllEmployees" classname="com.employee.Service.EmployeeServiceTest" time="0.002" displayname="testGetAllEmployees()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.EmployeeServiceTest]/[method:testGetAllEmployees()]"/>
+    <testcase name="testFilterByDepartment" classname="com.employee.Service.EmployeeServiceTest" time="0.001" displayname="testFilterByDepartment()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.EmployeeServiceTest]/[method:testFilterByDepartment()]"/>
+  </testsuite>
+  <testsuite name="com.employee.Service.ProjectServiceTest" time="0.077" displayname="ProjectServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.ProjectServiceTest]">
+    <testcase name="testUpdateProject" classname="com.employee.Service.ProjectServiceTest" time="0.07" displayname="testUpdateProject()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.ProjectServiceTest]/[method:testUpdateProject()]"/>
+    <testcase name="testAddProject" classname="com.employee.Service.ProjectServiceTest" time="0.001" displayname="testAddProject()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.ProjectServiceTest]/[method:testAddProject()]"/>
+    <testcase name="testDeleteProject" classname="com.employee.Service.ProjectServiceTest" time="0.001" displayname="testDeleteProject()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.ProjectServiceTest]/[method:testDeleteProject()]"/>
+    <testcase name="testGetAllProjects" classname="com.employee.Service.ProjectServiceTest" time="0.003" displayname="testGetAllProjects()" uniqueid="[engine:junit-jupiter]/[class:com.employee.Service.ProjectServiceTest]/[method:testGetAllProjects()]"/>
+  </testsuite>
+</testrun>

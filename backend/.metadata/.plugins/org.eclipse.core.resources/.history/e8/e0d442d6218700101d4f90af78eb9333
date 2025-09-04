@@ -1,0 +1,5 @@
+package com.employee.Config;
+
+public class SecurityConfig {
+
+}
